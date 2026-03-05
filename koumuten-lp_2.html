@@ -1,0 +1,924 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>工務店紹介窓口｜後悔しない家づくりを全力サポート・完全無料</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Noto+Serif+JP:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Noto Sans JP',sans-serif;background:#f7fbfc;color:#2d2a26;line-height:1.7;font-size:15px}
+img{display:block;max-width:100%}
+
+:root{
+  --teal:#2aa8a0;
+  --teal-dark:#1d8a83;
+  --teal-light:#e8f8f7;
+  --teal-mid:#4dc4bc;
+  --yellow:#f5c842;
+  --yellow-dark:#e0b030;
+  --yellow-pale:#fffbe8;
+  --green:#3daa6e;
+  --green-pale:#e8f7ee;
+  --ink:#2d2a26;
+  --gray:#7a726a;
+  --white:#ffffff;
+  --mist:#e4eef0;
+  --sand:#f5f0e8;
+}
+
+/* ── WRAP ── */
+.wrap{max-width:480px;margin:0 auto;background:var(--white)}
+
+/* ── NAV ── */
+#nav{
+  position:fixed;top:0;left:0;right:0;z-index:500;
+  background:var(--white);border-bottom:3px solid var(--teal);
+  height:56px;display:flex;align-items:center;justify-content:space-between;
+  padding:0 16px;box-shadow:0 2px 10px rgba(42,168,160,.15);
+}
+.nav-logo{display:flex;align-items:center;gap:8px}
+.nav-logo-icon{
+  width:32px;height:32px;background:var(--teal);border-radius:6px;
+  display:flex;align-items:center;justify-content:center;font-size:16px;
+}
+.nav-logo-text{font-family:'Noto Serif JP',serif;font-size:13px;font-weight:700;color:var(--teal);line-height:1.2}
+.nav-logo-sub{font-size:9px;color:var(--gray);font-weight:400}
+.nav-line-btn{
+  display:flex;align-items:center;gap:5px;
+  padding:7px 14px;background:#06c755;border:none;border-radius:4px;
+  color:var(--white);font-size:12px;font-weight:700;cursor:pointer;
+  font-family:'Noto Sans JP',sans-serif;
+  box-shadow:0 3px 10px rgba(6,199,85,.35);
+}
+
+/* ── LINE CTA BLOCK (repeating) ── */
+.line-cta{
+  background:linear-gradient(135deg,#06c755 0%,#05a847 100%);
+  padding:20px 16px;text-align:center;
+}
+.line-cta-label{color:rgba(255,255,255,.85);font-size:12px;margin-bottom:10px}
+.btn-line{
+  display:flex;align-items:center;justify-content:center;gap:10px;
+  width:100%;padding:16px;background:var(--white);
+  border:none;border-radius:8px;color:#06c755;
+  font-size:16px;font-weight:900;cursor:pointer;
+  box-shadow:0 6px 20px rgba(0,0,0,.15);
+  font-family:'Noto Sans JP',sans-serif;transition:all .2s;
+}
+.btn-line:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(0,0,0,.2)}
+.btn-line-icon{font-size:22px}
+.line-cta-note{color:rgba(255,255,255,.75);font-size:11px;margin-top:8px}
+
+/* ── HERO ── */
+#hero{margin-top:56px;background:var(--white)}
+.hero-img{position:relative;overflow:hidden}
+.hero-img img{width:100%;height:280px;object-fit:cover;object-position:center 30%}
+.hero-overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(160deg,rgba(26,58,80,.7) 0%,rgba(26,58,80,.3) 100%);
+}
+.hero-badges-tl{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:5px}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:4px;
+  background:var(--teal);color:var(--white);
+  font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px;
+}
+.hero-text-overlay{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:16px;
+}
+.hero-worries{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:12px}
+.hero-worry{
+  background:rgba(255,255,255,.2);backdrop-filter:blur(4px);
+  border:1px solid rgba(255,255,255,.4);border-radius:20px;
+  color:var(--white);font-size:11px;font-weight:700;padding:5px 12px;
+}
+.hero-main{
+  background:rgba(255,255,255,.95);border-radius:10px;
+  padding:16px;text-align:center;
+}
+.hero-kw{font-size:11px;color:var(--teal);font-weight:700;letter-spacing:2px;margin-bottom:4px}
+.hero-catch{
+  font-family:'Noto Serif JP',serif;
+  font-size:clamp(22px,6vw,30px);font-weight:700;color:var(--ink);line-height:1.35;
+}
+.hero-catch em{font-style:normal;color:var(--teal)}
+.hero-stats{display:flex;justify-content:center;gap:20px;margin-top:10px}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:var(--teal);line-height:1}
+.hero-stat-unit{font-size:13px;font-weight:700;color:var(--teal)}
+.hero-stat-label{font-size:10px;color:var(--gray);margin-top:2px}
+
+/* ── ZERO YEN BANNER ── */
+.zero-banner{
+  background:var(--yellow);padding:16px;text-align:center;
+  display:flex;align-items:center;justify-content:center;gap:10px;flex-wrap:wrap;
+}
+.zero-text{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;color:var(--ink)}
+.zero-num{font-size:36px;font-weight:900;color:var(--ink)}
+.zero-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.zero-tag{background:var(--ink);color:var(--yellow);font-size:11px;font-weight:700;padding:3px 10px;border-radius:3px}
+
+/* ── SECTION COMMON ── */
+.sec{padding:28px 16px}
+.sec-eye{font-size:11px;font-weight:700;color:var(--teal);letter-spacing:2px;text-align:center;margin-bottom:6px}
+.sec-title{font-family:'Noto Serif JP',serif;font-size:18px;font-weight:700;color:var(--ink);text-align:center;margin-bottom:6px;line-height:1.5}
+.sec-title span{color:var(--teal)}
+.sec-title em{font-style:normal;color:var(--yellow-dark)}
+.sec-sub{font-size:13px;color:var(--gray);text-align:center;margin-bottom:20px;line-height:1.8}
+
+/* ── WORRY SECTION ── */
+.worry-sec{background:var(--teal-light);padding:28px 16px}
+.worry-inner{
+  background:var(--white);border-radius:12px;padding:20px;
+  border:2px solid var(--teal);
+}
+.worry-title{font-size:16px;font-weight:700;color:var(--ink);text-align:center;margin-bottom:16px;line-height:1.5}
+.worry-title span{color:var(--teal);font-size:18px}
+.checklist{display:flex;flex-direction:column;gap:0}
+.check-item{
+  display:flex;flex-direction:column;
+  padding:12px 0;border-bottom:1px solid var(--mist);
+}
+.check-item:last-child{border-bottom:none}
+.check-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:2px}
+.check-box{
+  flex-shrink:0;width:20px;height:20px;border-radius:4px;
+  border:2px solid var(--teal);display:flex;align-items:center;justify-content:center;
+  margin-top:2px;
+}
+.check-box::after{content:'✓';color:var(--teal);font-size:12px;font-weight:700}
+.check-main{font-size:14px;font-weight:700;color:var(--teal);line-height:1.4}
+.check-sub{font-size:12px;color:var(--gray);padding-left:28px;line-height:1.6}
+.worry-arrow{
+  text-align:center;margin:20px 0 16px;
+  color:var(--teal);font-size:24px;line-height:1;
+}
+.worry-solution{
+  background:var(--teal);border-radius:10px;padding:16px;
+  display:flex;align-items:center;gap:12px;
+}
+.ws-logo{background:rgba(255,255,255,.2);border-radius:8px;padding:8px 10px;flex-shrink:0;font-size:20px}
+.ws-text{color:var(--white);font-size:15px;font-weight:700;line-height:1.5}
+.ws-text em{font-style:normal;display:block;font-size:18px}
+.worry-conclusion{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:var(--ink);text-align:center;margin-top:20px;line-height:1.6}
+
+/* ── FEATURES ── */
+.features-sec{background:var(--white);padding:28px 16px}
+.feature-item{
+  display:flex;gap:14px;align-items:flex-start;
+  padding:16px;margin-bottom:12px;
+  background:var(--teal-light);border-radius:10px;
+  border-left:4px solid var(--teal);
+}
+.feature-icon{font-size:28px;flex-shrink:0;margin-top:2px}
+.feature-title{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:5px}
+.feature-desc{font-size:13px;color:var(--gray);line-height:1.8}
+
+/* ── NATIONAL ── */
+.national-sec{background:var(--teal);padding:28px 16px;text-align:center}
+.nat-bubble{
+  display:inline-block;background:var(--white);color:var(--ink);
+  font-size:14px;font-weight:700;padding:10px 20px;border-radius:20px;
+  margin-bottom:16px;position:relative;
+  box-shadow:0 4px 12px rgba(0,0,0,.1);
+}
+.nat-bubble::after{
+  content:'';position:absolute;bottom:-8px;left:50%;transform:translateX(-50%);
+  width:0;height:0;border-left:8px solid transparent;
+  border-right:8px solid transparent;border-top:8px solid var(--white);
+}
+.nat-title{font-family:'Noto Serif JP',serif;font-size:26px;font-weight:700;color:var(--white);margin-bottom:6px}
+.nat-title span{font-size:42px}
+.nat-sub{font-size:13px;color:rgba(255,255,255,.8);margin-bottom:16px}
+.nat-img{width:100%;border-radius:10px;height:180px;object-fit:cover;margin-bottom:14px}
+.nat-badge{
+  display:inline-block;background:var(--yellow);color:var(--ink);
+  font-size:14px;font-weight:700;padding:8px 20px;border-radius:4px;
+  box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+
+/* ── MAKERS ── */
+.makers-sec{background:var(--white);padding:24px 16px}
+.makers-title{font-family:'Noto Serif JP',serif;font-size:17px;font-weight:700;color:var(--ink);text-align:center;margin-bottom:16px;line-height:1.4}
+.makers-title span{color:var(--teal)}
+.maker-logos{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:10px;
+}
+.maker-logo{
+  background:var(--sand);border-radius:6px;padding:8px;
+  font-size:10px;font-weight:700;color:var(--gray);text-align:center;
+  border:1px solid var(--mist);line-height:1.4;
+}
+.makers-note{font-size:10px;color:var(--gray);text-align:center}
+
+/* ── GIFTS ── */
+.gifts-sec{
+  background:linear-gradient(135deg,#06c755 0%,#05a847 100%);
+  padding:28px 16px;text-align:center;
+}
+.gifts-badge{
+  display:inline-block;background:var(--yellow);color:var(--ink);
+  font-size:13px;font-weight:900;padding:6px 18px;border-radius:4px;
+  margin-bottom:14px;letter-spacing:1px;
+}
+.gifts-title{font-family:'Noto Serif JP',serif;font-size:20px;font-weight:700;color:var(--white);margin-bottom:6px;line-height:1.4}
+.gifts-title strong{font-size:26px}
+.gifts-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:16px 0}
+.gift-item{background:var(--white);border-radius:8px;padding:12px 8px;text-align:center}
+.gift-icon{font-size:24px;margin-bottom:6px}
+.gift-name{font-size:10px;font-weight:700;color:var(--ink);line-height:1.4}
+.gifts-note{font-size:11px;color:rgba(255,255,255,.7)}
+
+/* ── VOICES ── */
+.voices-sec{background:var(--sand);padding:28px 16px}
+.voice-card{
+  background:var(--white);border-radius:10px;padding:18px;
+  margin-bottom:14px;border-top:4px solid var(--teal);
+  box-shadow:0 2px 10px rgba(0,0,0,.06);
+}
+.voice-person{
+  font-size:13px;font-weight:700;color:var(--teal);margin-bottom:8px;
+  display:flex;align-items:center;gap:6px;
+}
+.voice-person::before{content:'📣';font-size:14px}
+.voice-text{font-size:13px;color:var(--ink);line-height:1.9}
+
+/* ── REASSURE ── */
+.reassure-sec{background:var(--teal-light);padding:28px 16px}
+.reassure-worry{
+  background:var(--white);border-radius:10px;padding:14px 16px;
+  margin-bottom:16px;position:relative;
+  border:1px solid var(--mist);
+}
+.reassure-worry::before{
+  content:'💭';position:absolute;top:-8px;left:16px;
+  background:var(--white);padding:0 4px;font-size:16px;
+}
+.rw-text{font-size:13px;color:var(--gray);line-height:1.7;font-style:italic}
+.reassure-big{
+  font-family:'Noto Serif JP',serif;font-size:28px;font-weight:700;
+  color:var(--teal);text-align:center;margin:20px 0 16px;
+}
+.reassure-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.reassure-item{
+  background:var(--white);border-radius:8px;padding:14px;text-align:center;
+  border-top:3px solid var(--teal);box-shadow:0 2px 8px rgba(0,0,0,.06);
+}
+.ri-icon{font-size:22px;margin-bottom:6px}
+.ri-label{font-size:13px;font-weight:700;color:var(--teal);margin-bottom:3px}
+.ri-desc{font-size:11px;color:var(--gray);line-height:1.6}
+
+/* ── FLOW ── */
+.flow-sec{background:var(--white);padding:28px 16px}
+.flow-step{display:flex;gap:12px;align-items:flex-start;position:relative}
+.flow-step:not(:last-child)::after{
+  content:'';position:absolute;left:19px;top:40px;
+  width:2px;height:calc(100% + 4px);
+  background:linear-gradient(var(--teal),var(--mist));
+}
+.flow-num{
+  flex-shrink:0;width:40px;height:40px;border-radius:50%;
+  background:var(--teal);color:var(--white);font-weight:900;font-size:16px;
+  display:flex;align-items:center;justify-content:center;z-index:1;
+}
+.flow-box{
+  flex:1;background:var(--teal-light);border-radius:8px;
+  padding:12px 14px;margin-bottom:14px;
+  border-left:3px solid var(--teal);
+}
+.flow-title{font-size:14px;font-weight:700;color:var(--teal);margin-bottom:4px;display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.flow-badge{background:var(--teal);color:var(--white);font-size:9px;padding:1px 7px;border-radius:3px;font-weight:700}
+.flow-desc{font-size:12px;color:var(--gray);line-height:1.8}
+
+/* ── ABOUT ── */
+.about-sec{background:var(--sand);padding:28px 16px}
+.about-header{margin-bottom:14px}
+.about-tag{
+  display:inline-block;background:var(--teal);color:var(--white);
+  font-size:10px;font-weight:700;padding:3px 10px;border-radius:3px;margin-bottom:6px;
+}
+.about-name{font-family:'Noto Serif JP',serif;font-size:16px;font-weight:700;color:var(--ink)}
+.about-name span{font-size:11px;color:var(--gray);font-family:'Noto Sans JP',sans-serif;font-weight:400;margin-right:4px}
+.about-img{width:100%;height:200px;object-fit:cover;border-radius:10px;margin-bottom:14px;object-position:center 20%}
+.about-desc{font-size:13px;color:var(--gray);line-height:1.9;margin-bottom:12px}
+.about-tags{display:flex;flex-wrap:wrap;gap:6px}
+.about-badge{background:var(--teal);color:var(--white);font-size:10px;padding:3px 10px;border-radius:3px;font-weight:700}
+
+/* ── FAQ ── */
+.faq-sec{background:var(--white);padding:28px 16px}
+.faq-item{border-bottom:1px solid var(--mist)}
+.faq-q{
+  display:flex;align-items:flex-start;gap:10px;
+  padding:14px 0;cursor:pointer;
+}
+.faq-ql{
+  flex-shrink:0;width:24px;height:24px;border-radius:50%;
+  background:var(--teal);color:var(--white);font-weight:900;font-size:12px;
+  display:flex;align-items:center;justify-content:center;margin-top:1px;
+}
+.faq-qt{font-size:14px;font-weight:700;color:var(--ink);flex:1;line-height:1.5}
+.faq-arr{color:var(--teal);font-size:13px;flex-shrink:0;transition:transform .3s;margin-top:3px}
+.faq-item.open .faq-arr{transform:rotate(180deg)}
+.faq-a{
+  display:none;margin-bottom:14px;padding:12px 14px;
+  background:var(--teal-light);border-radius:8px;
+  font-size:13px;color:var(--gray);line-height:1.85;margin-left:34px;
+}
+.faq-item.open .faq-a{display:block}
+
+/* ── FORM ── */
+.form-sec{background:var(--teal-light);padding:28px 16px}
+.form-box{background:var(--white);border-radius:12px;padding:22px 16px;box-shadow:0 4px 20px rgba(42,168,160,.12)}
+.form-row{margin-bottom:14px}
+.form-label{font-size:12px;font-weight:700;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:5px}
+.form-req{background:var(--teal);color:var(--white);font-size:9px;padding:1px 7px;border-radius:2px}
+.form-input{
+  width:100%;padding:11px 13px;border:1.5px solid var(--mist);border-radius:6px;
+  font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;
+  transition:border-color .2s;color:var(--ink);background:#fafafa;
+}
+.form-input:focus{border-color:var(--teal);background:var(--white)}
+.form-select{
+  width:100%;padding:11px 13px;border:1.5px solid var(--mist);border-radius:6px;
+  font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;
+  color:var(--ink);background:#fafafa;cursor:pointer;appearance:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%232aa8a0' stroke-width='1.5' fill='none'/%3E%3C/svg%3E");
+  background-repeat:no-repeat;background-position:right 12px center;
+}
+.form-textarea{
+  width:100%;padding:11px 13px;min-height:80px;border:1.5px solid var(--mist);
+  border-radius:6px;font-size:14px;font-family:'Noto Sans JP',sans-serif;outline:none;
+  resize:vertical;color:var(--ink);background:#fafafa;
+}
+.form-textarea:focus{border-color:var(--teal);background:var(--white)}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.form-submit{
+  width:100%;padding:15px;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);
+  border:none;border-radius:8px;color:var(--white);font-size:15px;font-weight:700;
+  cursor:pointer;font-family:'Noto Sans JP',sans-serif;
+  box-shadow:0 6px 18px rgba(42,168,160,.4);margin-top:6px;
+}
+.form-note{font-size:11px;color:var(--gray);margin-top:10px;text-align:center;line-height:1.8}
+
+/* ── COMPANY ── */
+.company-sec{background:var(--white);padding:24px 16px}
+.company-title{font-size:15px;font-weight:700;color:var(--teal);margin-bottom:12px;border-left:4px solid var(--teal);padding-left:10px}
+.company-table{width:100%;border-collapse:collapse;font-size:13px}
+.company-table tr{border-bottom:1px solid var(--mist)}
+.company-table th{width:34%;padding:10px 8px;color:var(--gray);font-weight:500;vertical-align:top;text-align:left}
+.company-table td{padding:10px 8px;color:var(--ink)}
+
+/* ── FOOTER ── */
+footer{background:var(--teal-dark);padding:20px 16px;text-align:center}
+.footer-logo{font-family:'Noto Serif JP',serif;font-size:15px;font-weight:700;color:var(--white);margin-bottom:10px}
+.footer-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:12px}
+.footer-links a{font-size:11px;color:rgba(255,255,255,.5);text-decoration:none}
+.footer-copy{font-size:11px;color:rgba(255,255,255,.3)}
+
+/* ── FLOAT ── */
+#float{
+  position:fixed;bottom:0;left:0;right:0;z-index:400;
+  background:var(--white);border-top:2px solid var(--teal);
+  padding:10px 12px;box-shadow:0 -4px 16px rgba(0,0,0,.1);
+}
+.float-inner{max-width:480px;margin:0 auto;display:flex;gap:8px}
+.float-btn-main{
+  flex:1;padding:13px;background:linear-gradient(135deg,var(--teal) 0%,var(--teal-dark) 100%);
+  border:none;border-radius:6px;color:var(--white);font-size:13px;font-weight:700;
+  cursor:pointer;font-family:'Noto Sans JP',sans-serif;
+}
+.float-btn-line{
+  padding:13px 14px;background:#06c755;border:none;border-radius:6px;
+  color:var(--white);font-size:13px;font-weight:700;cursor:pointer;
+  font-family:'Noto Sans JP',sans-serif;white-space:nowrap;
+}
+
+/* ── ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .5s ease,transform .5s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+@keyframes pulse{0%,100%{box-shadow:0 6px 20px rgba(6,199,85,.4)}50%{box-shadow:0 6px 28px rgba(6,199,85,.65)}}
+.pulse{animation:pulse 2s infinite}
+
+body{padding-bottom:68px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <div class="nav-logo">
+    <div class="nav-logo-icon">🏠</div>
+    <div>
+      <div class="nav-logo-text">工務店紹介窓口</div>
+      <div class="nav-logo-sub">注文住宅選び専門・中立公正</div>
+    </div>
+  </div>
+  <button class="nav-line-btn" onclick="scrollToLine()">
+    <span>LINE</span>で無料相談
+  </button>
+</nav>
+
+<div class="wrap">
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="hero-img">
+    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=85&auto=format&fit=crop" alt="理想の家">
+    <div class="hero-overlay"></div>
+    <div class="hero-badges-tl">
+      <div class="hero-tag">業界 10年</div>
+      <div class="hero-tag">相談実績 1,000件+</div>
+    </div>
+    <div class="hero-text-overlay">
+      <div class="hero-worries">
+        <span class="hero-worry">金利で後悔したくない</span>
+        <span class="hero-worry">セールスはされたくない</span>
+        <span class="hero-worry">土地選びを失敗しない</span>
+        <span class="hero-worry">予算で諦めたくない</span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-main" style="padding:20px 16px;background:var(--white)">
+    <div class="hero-kw">後悔しない家づくりのために</div>
+    <div class="hero-catch">夢を、<em>造ろう。</em></div>
+    <div style="font-size:13px;color:var(--gray);margin-top:8px;line-height:1.7">
+      中立公正なプロが、あなたにぴったりの<br>工務店・ハウスメーカーを無料でご紹介
+    </div>
+    <div class="hero-stats" style="margin-top:14px">
+      <div class="hero-stat">
+        <div><span class="hero-stat-num">80</span><span class="hero-stat-unit">拠点</span></div>
+        <div class="hero-stat-label">全国展開</div>
+      </div>
+      <div style="width:1px;background:var(--mist)"></div>
+      <div class="hero-stat">
+        <div><span class="hero-stat-num">476</span><span class="hero-stat-unit">社</span></div>
+        <div class="hero-stat-label">提携住宅会社</div>
+      </div>
+      <div style="width:1px;background:var(--mist)"></div>
+      <div class="hero-stat">
+        <div><span class="hero-stat-num">0</span><span class="hero-stat-unit">円</span></div>
+        <div class="hero-stat-label">ご利用料金</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ZERO BANNER -->
+<div class="zero-banner">
+  <div class="zero-text">すべて</div>
+  <div><span class="zero-num">0</span><span style="font-size:20px;font-weight:900;color:var(--ink)">円</span></div>
+  <div>
+    <div class="zero-tags">
+      <div class="zero-tag">性能</div>
+      <div class="zero-tag">価格</div>
+      <div class="zero-tag">デザイン</div>
+    </div>
+    <div style="font-size:11px;color:var(--ink);margin-top:4px;font-weight:700">「こだわり」が叶う会社が見つかる</div>
+  </div>
+</div>
+
+<!-- LINE CTA 1 -->
+<div class="line-cta" id="line-section">
+  <p class="line-cta-label">＼ 公式LINEから無料でご相談 ／</p>
+  <button class="btn-line pulse" onclick="alert('LINEで友達追加！\n（実際の実装時はLINE追加URLに変更）')">
+    <span class="btn-line-icon">💬</span>
+    公式LINEから相談する ＞
+  </button>
+  <p class="line-cta-note">✅ 完全無料　✅ スマホで完結　✅ 押し売りなし</p>
+</div>
+
+<!-- ── WORRY / CHECKLIST ── -->
+<div class="worry-sec reveal">
+  <div class="worry-inner">
+    <h2 class="worry-title">後悔を減らす方法は<br><span>「知ること」</span></h2>
+    <div class="checklist">
+      <div class="check-item">
+        <div class="check-head">
+          <div class="check-box"></div>
+          <div class="check-main">今ローンを組むのは損じゃない？</div>
+        </div>
+        <div class="check-sub">金利や返済額を数字でハッキリ確かめたい</div>
+      </div>
+      <div class="check-item">
+        <div class="check-head">
+          <div class="check-box"></div>
+          <div class="check-main">物価高の今でも無理なく建てられる</div>
+        </div>
+        <div class="check-sub">現実的な予算計画が知りたい</div>
+      </div>
+      <div class="check-item">
+        <div class="check-head">
+          <div class="check-box"></div>
+          <div class="check-main">子育て/教育/老後まで安心して暮らせる</div>
+        </div>
+        <div class="check-sub">ずっと住める家を作りたい</div>
+      </div>
+      <div class="check-item">
+        <div class="check-head">
+          <div class="check-box"></div>
+          <div class="check-main">SNSやネットの情報が多すぎて迷子…</div>
+        </div>
+        <div class="check-sub">正しいステップを短時間で理解したい</div>
+      </div>
+      <div class="check-item">
+        <div class="check-head">
+          <div class="check-box"></div>
+          <div class="check-main">万が一の資産価値のことまで専門家に</div>
+        </div>
+        <div class="check-sub">いつでも相談できる安心が欲しい</div>
+      </div>
+    </div>
+    <div class="worry-arrow">▼▼▼</div>
+    <div class="worry-solution">
+      <div class="ws-logo">🏠</div>
+      <div class="ws-text">
+        それ、<em>私達だからできるんです。</em>
+      </div>
+    </div>
+  </div>
+  <p class="worry-conclusion">理想を形に出来るのは、<br>あなたに寄り添う「土台」があるから</p>
+</div>
+
+<!-- LINE CTA 2 -->
+<div class="line-cta">
+  <p class="line-cta-label">＼ 公式LINEから無料でご相談 ／</p>
+  <button class="btn-line" onclick="scrollToLine()">公式LINEから相談する ＞</button>
+</div>
+
+<!-- ── FEATURES ── -->
+<div class="features-sec reveal">
+  <div class="sec-eye">Our Support</div>
+  <h2 class="sec-title">工務店紹介窓口の<br><span>サポート内容</span></h2>
+  <div class="feature-item">
+    <div class="feature-icon">🏢</div>
+    <div>
+      <div class="feature-title">ハウスメーカー・工務店・建築家まで紹介</div>
+      <p class="feature-desc">お客様1人1人のご要望や好みをヒアリングしながら、ピッタリの住宅会社の選び方をお教えし、ご紹介します。</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">🤝</div>
+    <div>
+      <div class="feature-title">担当営業マンはしっかりと厳選</div>
+      <p class="feature-desc">「この営業マンなら任せられる」と厳選した頼れる担当者を指名。相性の良い方をご紹介します。</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">💰</div>
+    <div>
+      <div class="feature-title">ファイナンシャルプランナーと一緒に</div>
+      <p class="feature-desc">家づくり専門のFPが、ライフスタイルを把握した上で、予算からライフプランまでシミュレーションをサポートします。</p>
+    </div>
+  </div>
+  <div class="feature-item">
+    <div class="feature-icon">📱</div>
+    <div>
+      <div class="feature-title">スマホで完結・オンライン対応</div>
+      <p class="feature-desc">わざわざ出向く必要なし。LINEやオンラインで完結するので、忙しい方でも気軽にご相談いただけます。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ── NATIONAL ── -->
+<div class="national-sec reveal">
+  <div class="nat-bubble">どうしてそんなに幅広く紹介できるの？</div>
+  <h3 class="nat-title">全国<span>86</span>拠点<br>展開中</h3>
+  <p class="nat-sub">だから、地域で頑張る「地元優良工務店」<br>の情報も豊富に持っています！</p>
+  <img class="nat-img"
+    src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80&auto=format&fit=crop"
+    alt="地域密着の工務店">
+  <div class="nat-badge">✨ まだ知らない会社に出会えるかも</div>
+</div>
+
+<!-- ── MAKERS ── -->
+<div class="makers-sec reveal">
+  <h3 class="makers-title">業界最大級 全国<span>476社</span>から<br>ぴったりをご紹介！</h3>
+  <div class="maker-logos">
+    <div class="maker-logo">三井ホーム</div>
+    <div class="maker-logo">ミサワホーム</div>
+    <div class="maker-logo">TOYOTA HOME</div>
+    <div class="maker-logo">YAMADA HOMES</div>
+    <div class="maker-logo">HEBEL HAUS</div>
+    <div class="maker-logo">住友林業</div>
+    <div class="maker-logo">アイダ設計</div>
+    <div class="maker-logo">ヤマト住建</div>
+    <div class="maker-logo">HINOKIYA</div>
+    <div class="maker-logo">SEKISUI HEIM</div>
+    <div class="maker-logo">STYLE HOUSE</div>
+    <div class="maker-logo">CFL</div>
+    <div class="maker-logo">ゆめすみか</div>
+    <div class="maker-logo">セルコホーム</div>
+    <div class="maker-logo">高砂建設</div>
+  </div>
+  <p class="makers-note">※ロゴの掲載は登録の一部です。順不同</p>
+</div>
+
+<!-- ── GIFTS ── -->
+<div class="gifts-sec reveal">
+  <div class="gifts-badge">🎁 お友だち追加で 5大特典プレゼント実施中</div>
+  <h3 class="gifts-title"><strong>LINE登録</strong>で<br>豪華特典をプレゼント！</h3>
+  <div class="gifts-grid">
+    <div class="gift-item">
+      <div class="gift-icon">📖</div>
+      <div class="gift-name">家づくり<br>ガイドブック</div>
+    </div>
+    <div class="gift-item">
+      <div class="gift-icon">📚</div>
+      <div class="gift-name">家づくり<br>専門用語集</div>
+    </div>
+    <div class="gift-item">
+      <div class="gift-icon">🏡</div>
+      <div class="gift-name">優良工務店<br>実例集</div>
+    </div>
+    <div class="gift-item">
+      <div class="gift-icon">📋</div>
+      <div class="gift-name">優良工務店<br>解説シート</div>
+    </div>
+    <div class="gift-item">
+      <div class="gift-icon">⚠️</div>
+      <div class="gift-name">後悔<br>POINT BOOK</div>
+    </div>
+    <div class="gift-item">
+      <div class="gift-icon">💰</div>
+      <div class="gift-name">予算<br>シミュレーション</div>
+    </div>
+  </div>
+  <button class="btn-line" style="background:var(--white);color:#06c755;" onclick="scrollToLine()">
+    <span class="btn-line-icon">💬</span>
+    今すぐ特典をGET！ ＞
+  </button>
+  <p class="gifts-note" style="margin-top:10px">※プレゼントはアンケート回答後に受け取れます</p>
+</div>
+
+<!-- LINE CTA 3 -->
+<div class="line-cta">
+  <p class="line-cta-label">＼ 公式LINEから無料でご相談 ／</p>
+  <button class="btn-line" onclick="scrollToLine()">公式LINEから相談する ＞</button>
+</div>
+
+<!-- ── VOICES ── -->
+<div class="voices-sec reveal">
+  <div class="sec-eye">Customer Voice</div>
+  <h2 class="sec-title">嬉しいお声を<br>いただいています！</h2>
+  <div class="voice-card">
+    <div class="voice-person">30代 Aさんご家族</div>
+    <p class="voice-text">予算のことから慎重に検討できたので、安心して家づくりが進められました！大手は高くて諦めてましたが、地元工務店で予算内で建てられたので感謝です。</p>
+  </div>
+  <div class="voice-card">
+    <div class="voice-person">40代 Tさん</div>
+    <p class="voice-text">両親の家を相続して数年、なんとかしなくてはと思うものの、中々話が進みませんでした。相談して、背中を押してもらってやっとリフォームに踏み切れました。</p>
+  </div>
+  <div class="voice-card">
+    <div class="voice-person">30代 Mさん夫婦</div>
+    <p class="voice-text">展示場に行くと強引な営業ばかりで疲れていました。ここは押し売りが一切なく、じっくりと比較できたのが本当によかったです！</p>
+  </div>
+</div>
+
+<!-- ── REASSURANCE ── -->
+<div class="reassure-sec reveal">
+  <div class="reassure-worry">
+    <p class="rw-text">一度相談したら営業電話あるのかな…</p>
+  </div>
+  <div class="reassure-big">ご安心ください</div>
+  <div class="reassure-grid">
+    <div class="reassure-item">
+      <div class="ri-icon">🤝</div>
+      <div class="ri-label">営業は一切なし</div>
+      <div class="ri-desc">ご希望の方のみ、住宅会社の紹介を実施</div>
+    </div>
+    <div class="reassure-item">
+      <div class="ri-icon">📞</div>
+      <div class="ri-label">お断り代行</div>
+      <div class="ri-desc">合わなかった住宅会社へのお断りも代行</div>
+    </div>
+    <div class="reassure-item">
+      <div class="ri-icon">💴</div>
+      <div class="ri-label">完全無料</div>
+      <div class="ri-desc">相談から紹介まで費用は一切なし</div>
+    </div>
+    <div class="reassure-item">
+      <div class="ri-icon">⚖️</div>
+      <div class="ri-label">中立公正</div>
+      <div class="ri-desc">特定会社を優遇しない公正な提案</div>
+    </div>
+  </div>
+</div>
+
+<!-- ── FLOW ── -->
+<div class="flow-sec reveal">
+  <div class="sec-eye">Step</div>
+  <h2 class="sec-title">オンライン相談の流れ</h2>
+  <div class="flow-step">
+    <div class="flow-num">1</div>
+    <div class="flow-box">
+      <div class="flow-title">📅 公式LINEから相談予約 <span class="flow-badge">3分</span></div>
+      <p class="flow-desc">LINEのカレンダーより、ご相談日時のご予約を入れてください。こちらからご予約確定のご連絡をします。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">2</div>
+    <div class="flow-box">
+      <div class="flow-title">💻 オンライン相談スタート</div>
+      <p class="flow-desc">お送りしたURLをクリックしてオンライン相談開始。まずはお客様の現状をお聞かせください。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">3</div>
+    <div class="flow-box">
+      <div class="flow-title">📊 ご要望整理・予算シミュレーション</div>
+      <p class="flow-desc">住宅建築コーディネーターがご要望を整理。家づくり専門FPが予算からライフプランをシミュレーションします。</p>
+    </div>
+  </div>
+  <div class="flow-step">
+    <div class="flow-num">4</div>
+    <div class="flow-box">
+      <div class="flow-title">🏠 ぴったりの住宅会社をご紹介</div>
+      <p class="flow-desc">ご要望・ご予算に合う住宅会社を数社ご紹介。打ち合わせの日程調整も代行。間取りや見積もりのチェックも中立に行います！</p>
+    </div>
+  </div>
+</div>
+
+<!-- LINE CTA 4 -->
+<div class="line-cta">
+  <p class="line-cta-label">＼ 公式LINEから無料でご相談 ／</p>
+  <button class="btn-line pulse" onclick="scrollToLine()">
+    <span class="btn-line-icon">💬</span>
+    相談予約は公式LINEから！ ＞
+  </button>
+</div>
+
+<!-- ── ABOUT ── -->
+<div class="about-sec reveal">
+  <div class="about-header">
+    <div class="about-tag">注文住宅選び専門店 工務店紹介窓口</div>
+    <div class="about-name"><span>代表コーディネーター</span>田中 誠一</div>
+  </div>
+  <img class="about-img"
+    src="https://images.unsplash.com/photo-1556157382-97eda2f9e2bf?w=800&q=80&auto=format&fit=crop"
+    alt="代表コーディネーター">
+  <p class="about-desc">
+    「リフォーム詐欺をなくしたい」そんな思いから住宅相談の仕事をスタート。<br><br>
+    自分一人では「全ての施主に100点満点を取ること」に限界があると感じ、中立公正な立場でのコーディネート業を開始しました。<br><br>
+    家づくりは初めてではわからないことばかりです。些細なことでも、お気軽にご相談ください。一生に一度の家づくり、納得しながら進められるよう伴走します。
+  </p>
+  <div class="about-tags">
+    <div class="about-badge">住宅建築コーディネーター</div>
+    <div class="about-badge">セミナー講師 100回以上</div>
+    <div class="about-badge">FP相談対応</div>
+  </div>
+</div>
+
+<!-- ── FAQ ── -->
+<div class="faq-sec reveal">
+  <div class="sec-eye">FAQ</div>
+  <h2 class="sec-title">よくある質問</h2>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-ql">Q</span>
+      <span class="faq-qt">無料ですか？</span>
+      <span class="faq-arr">▼</span>
+    </div>
+    <div class="faq-a">はい、無料です。本来は1時間3万円の相談料をいただいておりますが、只今キャンペーン中にて、何度ご相談いただいても無料です。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-ql">Q</span>
+      <span class="faq-qt">なぜ無料なのですか？</span>
+      <span class="faq-arr">▼</span>
+    </div>
+    <div class="faq-a">登録住宅会社から営業支援費をいただいて運営しております。住宅会社は通常、販売価格の10%以上を広告宣伝費にかけています。私共はその会社に合うお客様のみをご紹介するため広告費を抑えることができ、その分を支援費としていただいています。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-ql">Q</span>
+      <span class="faq-qt">ハウスメーカーのみの紹介ですか？</span>
+      <span class="faq-arr">▼</span>
+    </div>
+    <div class="faq-a">いいえ、工務店・建築家・ハウスメーカーをご紹介可能です。また注文住宅だけでなく、建売・中古戸建・マンション・リフォームなどのご相談もOKです。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-ql">Q</span>
+      <span class="faq-qt">紹介して終わりですか？</span>
+      <span class="faq-arr">▼</span>
+    </div>
+    <div class="faq-a">いいえ、ご紹介後も図面や見積書のチェックなど、気になることはなんでもご相談いただけます。完成まで何度でもサポートいたします。</div>
+  </div>
+  <div class="faq-item">
+    <div class="faq-q" onclick="toggleFaq(this)">
+      <span class="faq-ql">Q</span>
+      <span class="faq-qt">まだ漠然としたイメージしかないのですが？</span>
+      <span class="faq-arr">▼</span>
+    </div>
+    <div class="faq-a">もちろんご相談いただけます。「なんとなく家を建てたい」という段階からのご相談が最も多く、一緒に整理していきます。お気軽にどうぞ。</div>
+  </div>
+</div>
+
+<!-- ── FORM ── -->
+<div class="form-sec" id="contact">
+  <div class="sec-eye">Contact</div>
+  <h2 class="sec-title">フォームから<br>お問い合わせ可能です</h2>
+  <div class="form-box">
+    <div class="form-row">
+      <label class="form-label">お名前 <span class="form-req">必須</span></label>
+      <input class="form-input" type="text" placeholder="例：田中 太郎">
+    </div>
+    <div class="form-row">
+      <label class="form-label">フリガナ <span class="form-req">必須</span></label>
+      <input class="form-input" type="text" placeholder="例：タナカ タロウ">
+    </div>
+    <div class="form-row">
+      <label class="form-label">メールアドレス <span class="form-req">必須</span></label>
+      <input class="form-input" type="email" placeholder="sample@example.com">
+    </div>
+    <div class="form-row">
+      <label class="form-label">電話番号 <span class="form-req">必須</span></label>
+      <input class="form-input" type="tel" placeholder="08012345678">
+    </div>
+    <div class="form-grid">
+      <div class="form-row">
+        <label class="form-label">郵便番号</label>
+        <input class="form-input" type="text" placeholder="0000000">
+      </div>
+      <div class="form-row">
+        <label class="form-label">都道府県 <span class="form-req">必須</span></label>
+        <select class="form-select">
+          <option>ご選択ください</option>
+          <option>東京都</option><option>神奈川県</option><option>埼玉県</option>
+          <option>千葉県</option><option>大阪府</option><option>愛知県</option><option>その他</option>
+        </select>
+      </div>
+    </div>
+    <div class="form-row">
+      <label class="form-label">ご計画内容</label>
+      <select class="form-select">
+        <option>ご選択ください</option>
+        <option>注文住宅を建てたい</option>
+        <option>建売住宅を購入したい</option>
+        <option>リフォームしたい</option>
+        <option>まだ決まっていない</option>
+      </select>
+    </div>
+    <div class="form-row">
+      <label class="form-label">ご相談事項・お悩み</label>
+      <textarea class="form-textarea" placeholder="ご相談事項やお悩みをご入力ください。"></textarea>
+    </div>
+    <button class="form-submit" onclick="submitForm()">送信する</button>
+    <p class="form-note">プライバシーポリシーに同意の上、送信してください。</p>
+  </div>
+</div>
+
+<!-- ── COMPANY ── -->
+<div class="company-sec reveal">
+  <h3 class="company-title">会社概要</h3>
+  <table class="company-table">
+    <tr><th>社名</th><td>株式会社工務店紹介窓口</td></tr>
+    <tr><th>代表取締役</th><td>田中 誠一</td></tr>
+    <tr><th>所在地</th><td>東京都〇〇区〇〇1-1-1</td></tr>
+    <tr><th>電話番号</th><td>0120-XXX-XXX</td></tr>
+    <tr><th>メール</th><td>info@example.co.jp</td></tr>
+  </table>
+</div>
+
+<footer>
+  <div class="footer-logo">🏠 工務店紹介窓口</div>
+  <div class="footer-links">
+    <a href="#">プライバシーポリシー</a>
+    <a href="#">特定商取引法</a>
+    <a href="#">会社概要</a>
+  </div>
+  <div class="footer-copy">© 2026 工務店紹介窓口. All Rights Reserved.</div>
+</footer>
+
+</div><!-- /wrap -->
+
+<!-- FLOAT -->
+<div id="float">
+  <div class="float-inner">
+    <button class="float-btn-main" onclick="scrollToContact()">✉ フォームで相談</button>
+    <button class="float-btn-line" onclick="scrollToLine()">💬 LINE相談</button>
+  </div>
+</div>
+
+<script>
+function scrollToLine(){document.getElementById('line-section').scrollIntoView({behavior:'smooth'})}
+function scrollToContact(){document.getElementById('contact').scrollIntoView({behavior:'smooth'})}
+function toggleFaq(el){
+  const item=el.parentElement;
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open)item.classList.add('open');
+}
+function submitForm(){alert('お問い合わせありがとうございます！\n担当コーディネーターより最短翌営業日にご連絡いたします。')}
+const obs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+window.addEventListener('scroll',()=>{
+  document.getElementById('nav').style.boxShadow=window.scrollY>50?'0 3px 14px rgba(42,168,160,.2)':'0 2px 10px rgba(42,168,160,.15)';
+});
+</script>
+</body>
+</html>
